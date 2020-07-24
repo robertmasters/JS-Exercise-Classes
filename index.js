@@ -102,12 +102,19 @@ class Car {
     this.tank += gallons;
   }
   drive(distance){
-    this.odometer +=distance;
-
-      this.tank = this.tank - (distance/this.milesPerGallon);
-      if (this.tank<=0){
-        return `I ran out of fuel at ${this.odometer}miles!`;
+    let conversion = 1/this.milesPerGallon // used to subtract from tank so for every mile it will be tank - (1/MPG)
+    
+    for (let i = 0; i<distance;i++){
+      this.odometer += 1;
+      // console.log("odo: "+this.odometer);
+      this.tank -= conversion;
+      // console.log("tank: " + this.tank);
+          if (this.tank<=0){
+            this.tank = 0;
+           i=distance; 
+           return `I ran out of fuel at ${this.odometer}miles!`;
       }
+    }
   }
 }
 
