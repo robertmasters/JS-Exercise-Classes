@@ -44,10 +44,10 @@ class Person {
   constructor(name, age){
     this.name = name;
     this.age =age;
-    const stomach = [];
+    this.stomach = [];
   }
     eat(somefood){
-        if (this.stomach.length<11){
+        if (this.stomach.length<10){
           this.stomach.push(somefood);
       }
     }
@@ -95,12 +95,25 @@ class Car {
   constructor(model, milesPerGallon){
     this.model = model;
     this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
-  tank = 0;
-  odometer = 0;
-  
-
+  fill(gallons) {
+    this.tank += gallons;
+  }
+  drive(distance){
+    this.odometer +=distance;
+    this.tank = this.tank - (distance/this.milesPerGallon)
+    if (this.tank<=0){
+      return `I ran out of fuel at ${this.odometer}miles!`;
+    }
+  }
 }
+
+const honda = new Car('Prelude', 10);
+honda.fill(15);
+honda.drive(200);
+
 
 /*
   TASK 3
