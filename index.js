@@ -41,8 +41,41 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age){
+    this.name = name;
+    this.age =age;
+    const stomach = [];
+  }
+    eat(somefood){
+        if (this.stomach.length<11){
+          this.stomach.push(somefood);
+      }
+    }
+    poop(){
+      this.stomach = [];
+    }
+    toString(){
+      return `${this.name}, ${this.age},  `;
+    }
 }
+
+const robert = new Person('Robert', 30);
+robert.eat('1');
+robert.eat('2');
+robert.eat('3');
+robert.eat('4');
+robert.eat('5');
+robert.eat('6');
+robert.eat('7');
+robert.eat('8');
+robert.eat('9');
+robert.eat('10');
+robert.eat('11');
+
+console.log(robert.stomach);
+
+
+
 
 /*
   TASK 2
@@ -59,6 +92,13 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+  }
+  tank = 0;
+  odometer = 0;
+  
 
 }
 
